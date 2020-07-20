@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+    <%- include ("./partials/nav.ejs")  %>
+    <div class="container">
+        <div class="display-3">
+            Your post has been <b>successfully</b> created
+        </div>
+
+        <h4 class="mt-5">Click here to return to the first page</h4>
+
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/" role="button">
+                Home
+            </a>
+        </p>
+
+        <h4 class="mt-5">Or click here to see all posts</h4>
+
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/posts" role="button">
+                Posts
+            </a>
+        </p>
+
+        <%- include ("./partials/footer.ejs") %>
+
+
+    </div>
+
+</body>
+
+</html>

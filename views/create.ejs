@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+
+    <!-- Navbar Partial -->
+    <%- include ("./partials/nav.ejs")  %>
+
+    <div class="container mt-5">
+        <form action="/posts" method="POST">
+            <div class="form-group">
+                <label for="title">
+                    <h4>Title</h4>
+                </label>
+                <input type="text" class="form-control" 
+                       id="title" name="title" 
+                       required placeholder="Enter a title">
+
+            </div>
+
+            <div class="form-group">
+                <label for="body">
+                    <h4>Body</h4>
+                </label>
+
+                <input type="text" class="form-control"
+                       id="body" name="body" style="height: 200px;"
+                       required placeholder="Enter your text">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+
+    <%- include ("./partials/footer.ejs") %>
+
+</body>
+
+</html>

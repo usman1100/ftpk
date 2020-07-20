@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+    <%- include ("./partials/nav.ejs")  %>
+
+    <div class="container">
+
+        <% if (posts.length > 0) { %>
+
+        <% for( let i = 0; i < posts.length; i++ ) { %>
+
+
+        <div class="card mt-5">
+            <div class="card-header">
+                <%= i+1 %>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= posts[i].title %>
+                </h5>
+
+
+                <p class="card-text">
+                    <%= posts[i].body %>
+                </p>
+
+
+                <a href="#" class="btn btn-primary">Check details</a>
+            </div>
+        </div>
+
+        <% } %>
+
+
+
+        <% } else { %>
+        <div class="display-1">
+            There are currently <b>no posts</b>
+        </div>
+
+
+        <h4 class="mt-5">Click here to return to the home page</h4>
+
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/" role="button">
+                Home
+            </a>
+        </p>
+        <% } %>
+
+    </div>
+
+    <!-- Footer -->
+    <%- include ("./partials/footer.ejs") %>
+
+
+
+</body>
+
+</html>
