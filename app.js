@@ -37,38 +37,6 @@ app.use(express.urlencoded({ extended: true }))
 
 
 
-
-
-// Get Requests
-app.get("/", (req, res) => {
-    res.render("index", { title: "FreeThoughts.pk" });
-})
-
-app.get("/posts", (req, res) => {
-    Post.find()
-    .then(results=>{
-        res.render("posts", { title: "Post", posts: results })
-    })
-    .catch(err => {
-        res.redirect("/notFound")
-        console.log(err)
-    })
-})
-
-app.get("/about", (req, res) => {
-    res.render("about", { title: "About" });
-})
-
-app.get("/create", (req, res) => {
-    res.render("create", { title: "Create New post" });
-})
-
-app.get("/success", (req, res) => {
-
-    res.render("success", { title: "Success" });
-
-})
-
 // Post Requests
 
 app.post("/posts", (req, res) => {
@@ -84,6 +52,61 @@ app.post("/posts", (req, res) => {
 
     console.log("\n\n", req.body, "\n\n")
 })
+
+
+
+
+
+// Get Requests
+app.get("/", (req, res) => {
+    res.render("index", { title: "FreeThoughts.pk" });
+
+})
+
+
+
+
+app.get("/posts/:id", (req, res) => {
+    let id = req.params.id.toString();
+
+    Post.findById(id)
+        .then(result => {
+            res.render("details",  {title: "Details" , post: result })
+        })
+        .catch(err => console.log("ErrorWas", err))
+})
+
+
+
+app.get("/posts", (req, res) => {
+    Post.find()
+    .then(results=>{
+        console.log(typeof results[0]._id)
+        res.render("posts", { title: "Post", posts: results })
+    })
+    .catch(err => {
+        res.redirect("/notFound")
+        console.log(err)
+    })
+})
+
+
+
+app.get("/about", (req, res) => {
+    res.render("about", { title: "About" });
+})
+
+app.get("/create", (req, res) => {
+    res.render("create", { title: "Create New post" });
+})
+
+app.get("/success", (req, res) => {
+
+    res.render("success", { title: "Success" });
+
+})
+
+
 
 
 
