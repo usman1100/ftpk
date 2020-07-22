@@ -3,8 +3,8 @@ const morgan = require('morgan')
 const mongoose = require("mongoose")
 const Post = require("./posts")
 
-const app = express();
 
+const app = express();
 const port = 4400
 
 // Connecting to database
@@ -18,7 +18,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
         })
     })
     .catch(err => console.log("Error: ", err))
-
 
 
 // Setting View Engine
