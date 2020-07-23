@@ -48,8 +48,6 @@ app.post("/posts", (req, res) => {
         .catch(err => {
             console.log("Error Occurred")
         })
-
-    console.log("\n\n", req.body, "\n\n")
 })
 
 
@@ -80,7 +78,6 @@ app.get("/posts/:id", (req, res) => {
 app.get("/posts", (req, res) => {
     Post.find()
     .then(results=>{
-        console.log(typeof results[0]._id)
         res.render("posts", { title: "Post", posts: results })
     })
     .catch(err => {
