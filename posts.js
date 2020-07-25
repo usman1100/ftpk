@@ -15,6 +15,18 @@ const postSchema = new Schema
         {
             type: String,
             required: true,
+        },
+
+        username: 
+        {
+            type: String,
+            required: false,
+        },
+
+        password: 
+        {
+            type: String,
+            required: true,
         }
         
     }, {timestamps: true}

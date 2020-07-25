@@ -13,8 +13,12 @@
 
 
         <div class="card mt-5">
-            <div class="card-header">
-                <%= i+1 %>
+            <div class="card-header"> by
+                <% if (posts[i].username) { %>
+                    <%= posts[i].username %> 
+                    <%} else { %>
+                    Anonymous
+                    <% } %>
             </div>
 
             <div class="card-body">

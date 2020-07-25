@@ -13,11 +13,11 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => {
         console.log("Connected to DB")
         app.listen(port, () => {
-            // Only listening if DB is connnected
-            console.log(`Listening on 192.168.0.104:${port}`);
+            console.log(`Listening on 192.168.0.105:${port}`);
         })
     })
     .catch(err => console.log("Error: ", err))
+
 
 
 // Setting View Engine
@@ -32,6 +32,7 @@ app.use(express.static("public"));
 
 
 app.use(express.urlencoded({ extended: true }))
+
 
 
 
